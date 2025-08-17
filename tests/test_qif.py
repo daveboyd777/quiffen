@@ -667,7 +667,8 @@ def test_get_data_dicts_accounts():
 
     assert len(data_dicts) == 1
     expected = account.to_dict()
-    del expected["_last_header"]
+    if "_last_header" in expected:
+        del expected["_last_header"]
     assert data_dicts[0] == expected
 
 
